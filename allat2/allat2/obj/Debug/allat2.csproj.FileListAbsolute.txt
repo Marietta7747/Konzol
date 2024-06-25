@@ -1,0 +1,7 @@
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\bin\Debug\allat2.exe.config
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\bin\Debug\allat2.exe
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\bin\Debug\allat2.pdb
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\obj\Debug\allat2.csproj.AssemblyReference.cache
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\obj\Debug\allat2.csproj.CoreCompileInputs.cache
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\obj\Debug\allat2.exe
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\allat2\allat2\obj\Debug\allat2.pdb
