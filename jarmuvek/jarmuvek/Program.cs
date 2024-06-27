@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace jarmuvek
 
         public static int AktualisEv { get; set; }
         public static int AlapDij {  get; set; }
-        public static double Haszondij { get; set; }
+        public static double HaszonKulcs { get; set; }
 
         public Jarmu(string azonosito, string rendszam, int gyartasiEv, double fogyasztas)
         {
@@ -57,7 +58,7 @@ namespace jarmuvek
 
         public virtual int BerletiDij()
         {
-            return (int)(AlapDij + AktualisKoltseg + AktualisKoltseg * Haszondij / 100);
+            return (int)(AlapDij + AktualisKoltseg + AktualisKoltseg * HaszonKulcs / 100);
         }
 
         public void Vegzett()
@@ -134,6 +135,99 @@ namespace jarmuvek
     {
         static void Main(string[] args)
         {
+        }
+
+        class Vezerles
+        {
+            private List<Jarmu> jarmuvek = new List<Jarmu>();
+            private string BUSZ = "busz";
+            private string TEHER_AUTO = "teherautó";
+
+            public void Indit()
+            {
+                StatikusBeallitas();
+                AdatBevitel();
+                Kiir("A regisztrált jármüvek: ");
+                Mukodtet();
+                Kiir("A regisztrált jármüvek: ");
+                Atlagkor();
+                LegtobbKilometer();
+                Rendez();
+
+            }
+
+            private void StatikusBeallitas()
+            {
+                Jarmu.AktualisEv = 2015;
+                Jarmu.AlapDij = 1000;
+                Jarmu.HaszonKulcs = 10;
+
+                Busz.Szorzo = 15;
+                TeherAuto.Szorzo = 8.5;
+            }
+
+            private void AdatBevitel()
+            {
+                string tipus, rendszam, azonosito;
+                int gyartEv, ferohely;
+                double fogyasztas, teherbiras;
+
+                StreamReader sr = new StreamReader("jarmuvek.txt");
+
+                int sorszam = 1;
+
+                while (!sr.EndOfStream)
+                {
+                    tipus = sr.ReadLine();
+                    Console.WriteLine(tipus);
+                    rendszam = sr.ReadLine();
+                    gyartEv = int.Parse(sr.ReadLine());
+                    fogyasztas = double.Parse(sr.ReadLine());  
+                    azonosito = tipus.Substring(0,1).ToUpper() + sorszam;
+
+                    if (tipus == BUSZ)
+                    {
+                        ferohely =  int.Parse(sr.ReadLine());
+                        jarmuvek.Add(new Busz (azonosito, rendszam, gyartEv, fogyasztas , ferohely));
+                    } else if (tipus == TEHER_AUTO){
+                        teherbiras = double.Parse(sr.ReadLine());
+                        jarmuvek.Add(new TeherAuto (azonosito , rendszam, gyartEv , fogyasztas , teherbiras));
+                    }
+                    sorszam++;
+                }
+
+                sr.Close();
+            }
+
+            private void Kiir(string cim)
+            {
+                Console.WriteLine(cim);
+                foreach (Jarmu jarmu in jarmuvek)
+                {
+                    Console.WriteLine(jarmu);
+                }
+            }
+
+            private void Mukodtet()
+            {
+
+            }
+
+            private void Atlagkor()
+            {
+
+            }
+
+            private void LegtobbKilometer()
+            {
+
+            }
+
+            private void Rendez()
+            {
+
+            }
+                        
         }
     }
 }
