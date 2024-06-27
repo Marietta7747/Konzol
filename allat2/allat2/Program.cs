@@ -35,15 +35,18 @@ namespace allat1
         {
             this.szepsegPont = szepsegPont;
             this.viselkedesPont = viselkedesPont;
+        }
+
+        public int PontSzam()
+        {
             if (Kor() <= korHatar)
             {
-                pontSzam = viselkedesPont * Kor() + szepsegPont * (korHatar - Kor());
+                return viselkedesPont * Kor() + szepsegPont * (korHatar - Kor());
             }
             else
             {
-                pontSzam = 0;
+                return 0;
             }
-
         }
 
         public override string ToString()
@@ -73,12 +76,7 @@ namespace allat1
 
         public int ViselkedesPont
         {
-            get { return szuletesiEv; }
-        }
-
-        public int PontSzam
-        {
-            get { return szuletesiEv; }
+            get { return viselkedesPont; }
         }
 
         public static int AktualisEv
@@ -153,10 +151,10 @@ namespace allat1
                 Console.WriteLine(allat);
 
                 osszesVersenyzo++;
-                osszesPont += allat.PontSzam;
-                if (legtobbPont < allat.PontSzam)
+                osszesPont += allat.PontSzam();
+                if (legtobbPont < allat.PontSzam())
                 {
-                    legtobbPont = allat.PontSzam;
+                    legtobbPont = allat.PontSzam();
                 }
 
                 Console.Write("Van még állat? (i/n) ");
