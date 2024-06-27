@@ -65,12 +65,12 @@ namespace allat1
 
         public int ViselkedesPont
         {
-            get { return szuletesiEv ; }            
+            get { return viselkedesPont ; }            
         }
 
         public int PontSzam
         {
-            get { return szuletesiEv; }
+            get { return pontSzam; }
         }
         
         public static int AktualisEv
