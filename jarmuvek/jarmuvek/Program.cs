@@ -210,22 +210,101 @@ namespace jarmuvek
 
             private void Mukodtet()
             {
+                int osszKoltseg = 0, osszBevetel = 0;
 
+                Random rand = new Random();
+                int alsoBenzinAr = 400, felsoBenzinAr = 420;
+                double utMax = 300;
+                int mukodesHatar = 200;
+                int jarmuIndex;
+
+                Jarmu jarmu;
+                int fuvarSzam = 0;
+
+                for (int i = 0; i < (int)rand.Next(mukodesHatar); i++)
+                {
+                    jarmuIndex = rand.Next(jarmuvek.Count);
+                    jarmu = jarmuvek[jarmuIndex];
+                    if (jarmu.Fuvaroz(rand.NextDouble() * utMax, rand.Next(alsoBenzinAr, felsoBenzinAr)))
+                    {
+                        fuvarSzam++;
+                        Console.WriteLine("\nAz induló jármű rendszáma: " + jarmu.Rendszam + 
+                            "\nAz aktuális fuvarozási költség: " + jarmu.AktualisKoltseg + "Ft." + 
+                            "\nAz aktuális bevétel: " + jarmu.BerletiDij() + "Ft.");
+
+                        osszBevetel += jarmu.BerletiDij();
+                        osszKoltseg += jarmu.AktualisKoltseg;
+                    }
+                    jarmuIndex = rand.Next(jarmuvek.Count);
+                    jarmuvek[jarmuIndex].Vegzett();
+                }
+                Console.WriteLine("\n\nA cég teljes költsége: " + osszKoltseg + "Ft." +
+                                    "\n\nTeljes bevétele: " + osszBevetel + "Ft." +
+                                    "\n\nHaszna: " + (osszBevetel - osszKoltseg) + "Ft.");
+                Console.WriteLine("\nA fuvarok száma: " + fuvarSzam);
             }
 
             private void Atlagkor()
             {
-
+                double osszKor = 0;
+                int darab = 0;
+                foreach (Jarmu jarmu in jarmuvek)
+                {
+                    osszKor += jarmu.Kor();
+                    darab++;
+                }
+                if (darab > 0)
+                {
+                    Console.WriteLine("\nA járművek átlag kora: "+ osszKor / darab + " év.");
+                }
+                else
+                {
+                    Console.WriteLine("Nincsenek járművek.");
+                }
             }
 
             private void LegtobbKilometer()
             {
-
+                double max = jarmuvek[0].FutottKm;
+                foreach (Jarmu jarmu in jarmuvek)
+                {
+                    if (jarmu.FutottKm > max)
+                    {
+                        max = jarmu.FutottKm;
+                    }
+                }
+                Console.WriteLine("\nA legtöbbet futott jármű(vek) {0: 000.00} km-rel", max);
+                foreach (Jarmu jarmu in jarmuvek)
+                {
+                    if (jarmu.FutottKm == max)
+                    {
+                        Console.WriteLine(jarmu.Rendszam);
+                    }
+                }
             }
 
             private void Rendez()
             {
+                Jarmu temp;
 
+                for (int i = 0; (i < jarmuvek.Count-1); i++)
+                {
+                    for (int j = 0; j < jarmuvek.Count; j++)
+                    {
+                        if (jarmuvek[i].Fogyasztas > jarmuvek[j].Fogyasztas)
+                        {
+                            temp = jarmuvek[i];
+                            jarmuvek[i] = jarmuvek[j];
+                            jarmuvek[j] = temp;
+                        }
+                    }
+                }
+
+                Console.WriteLine("\nA járművek fogyasztás szerint rendezve: ");
+                foreach (Jarmu jarmu in jarmuvek)
+                {
+                    Console.WriteLine("{0,-10} {1:00.0} liter / 100 km.", jarmu.Rendszam, jarmu.Fogyasztas);
+                }
             }
                         
         }
