@@ -1,0 +1,10 @@
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\bin\Debug\JatekADatumokkalRaadas.exe.config
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\bin\Debug\JatekADatumokkalRaadas.exe
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\bin\Debug\JatekADatumokkalRaadas.pdb
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.csproj.AssemblyReference.cache
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.Form1.resources
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.Properties.Resources.resources
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.csproj.GenerateResource.cache
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.csproj.CoreCompileInputs.cache
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.exe
+C:\Users\marie\source\repos\JatekADatumokkalRaadas\JatekADatumokkalRaadas\obj\Debug\JatekADatumokkalRaadas.pdb
