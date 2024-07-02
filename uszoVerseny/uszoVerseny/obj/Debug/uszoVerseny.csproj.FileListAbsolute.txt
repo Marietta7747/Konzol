@@ -1,0 +1,10 @@
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\bin\Debug\uszoVerseny.exe.config
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\bin\Debug\uszoVerseny.exe
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\bin\Debug\uszoVerseny.pdb
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.csproj.AssemblyReference.cache
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.Form1.resources
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.Properties.Resources.resources
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.csproj.GenerateResource.cache
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.csproj.CoreCompileInputs.cache
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.exe
+Z:\12_Kozgaz\DIAKOK\Falka Marietta\uszoVerseny\uszoVerseny\obj\Debug\uszoVerseny.pdb

@@ -1,0 +1,4 @@
+001;Jakabos Zsuzsanna;1989.4.3;Magyarország;2:05.18
+002;Aljand Triin;1985.7.8;Észtország;1:28.04
+003;Hosszú Katinka;1989.5.3;Magyarország;2:05.18
+004;Martina Granstrom;Svédország;1990.8.5;2:08.43
