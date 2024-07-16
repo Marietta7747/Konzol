@@ -5,6 +5,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.CodeDom.Compiler;
 
 namespace Telefonkönyv
 {
@@ -50,7 +51,7 @@ namespace Telefonkönyv
             Console.Clear();
             Console.WriteLine("\n\n\t\t\t\t\t**********WELCOME TO PHONEBOOK*************");
             Console.WriteLine("\n\n\t\t\t\t\t\t\t MENU \t\t\n\n");
-            Console.WriteLine("\t\t\t\t\t1.Add New \t2.List \t\t3.Exit \n\t\t\t\t\t4.Modify \t5.Search \t6.Delete");
+            Console.WriteLine("\t\t\t\t\t1.Add New \t2.Display \t3.Exit \n\t\t\t\t\t4.Modify \t5.Search \t6.Delete");
 
             switch (Console.ReadKey().KeyChar)
             {
@@ -198,6 +199,58 @@ namespace Telefonkönyv
 
         public void Deleterecord()
         {
+            Console.Clear();
+            Person p = new Person();
+            StreamReader sr = new StreamReader("record.txt");
+            int flag = 0;
+            string name;
+
+            if (sr == null)
+            {
+                Console.WriteLine("CONTACT'S DATA NOT ADDED YET.");
+            }
+            else
+            {
+                StreamWriter sw = new StreamWriter("temp.txt");
+                if (sw == null)
+                {
+                    Console.WriteLine("file opening error");
+                }
+                else
+                {
+                    Console.WriteLine("Enter CONTACT'S NAME: ");
+                    string name1 = Console.ReadLine();
+                    Console.Clear();
+                    while(!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine();
+                        string[] strings = line.Split(';');
+                        if (name1 != strings[0])
+                        {
+                            sw.WriteLine(name1);
+                        }
+                        if (name1 == strings[0])
+                        {
+                            flag = 1;
+                        }
+                    }
+
+                    sr.Close();
+                    sw.Close();
+                    if (flag != 1)
+                    {
+                        Console.WriteLine("NO CONTACT'S RECORD TO DELETE");
+                        File.Delete("temp.txt");
+                    }
+
+                    else
+                    {
+                        File.Delete("record.txt");
+                        File.Move("temp.txt", "record.txt");
+                        Console.WriteLine("RECORD DELETED SUCCESSFULLY");
+                    }
+                }  
+            }
 
             Console.WriteLine("\nEnter any key");
             Console.ReadKey();
@@ -207,16 +260,74 @@ namespace Telefonkönyv
 
         public void Modifyrecord()
         {
+            Console.Clear();
+            int flag = 0;
+            Person p = new Person();
+            Person s = new Person();
+            string name;
+
+            StreamReader sr = new StreamReader("record.txt");
+            if (sr == null)
+            {
+                Console.WriteLine("CONTACT'S DATA NOT ADDED YET.");
+                Environment.Exit(1);
+            }
+            else
+            {
+                Console.WriteLine("\nEnter CONTACT'S NAME TO MODIFY: \n");
+                name = sr.ReadLine();
+                
+
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    string[] strings = line.Split(';');
+                    if(name != strings[0])
+                    {
+                        Console.WriteLine("\nEnter name: ");
+                        s.name = Console.ReadLine();
+
+                        Console.WriteLine("\nEnter the address: ");
+                        s.address = Console.ReadLine();
+
+                        Console.WriteLine("\nEnter father name: ");
+                        s.fatherName = Console.ReadLine();
+
+                        Console.WriteLine("\nEnter mother name: ");
+                        s.motherName = Console.ReadLine();
+
+                        Console.WriteLine("\nEnter phone no: ");
+                        s.mbleNumber = long.Parse(Console.ReadLine());
+
+                        Console.WriteLine("\nEnter sex: ");
+                        s.sex = char.Parse(Console.ReadLine());
+
+                        Console.WriteLine("\nEnter e-mail: ");
+                        s.mail = Console.ReadLine();
+
+                        Console.WriteLine("\nEnter citizen no: ");
+                        s.citisionNumber = Console.ReadLine();
+
+                        flag = 1;
+                        break;
+                    }
+                    Console.Clear();
+                }
+                if (flag == 1)
+                {
+                    Console.WriteLine("\nyour data id modified");
+                }
+                else
+                {
+                    Console.WriteLine("\ndata is not found");
+                }
+                sr.Close();
+            }
 
             Console.WriteLine("\nEnter any key");
             Console.ReadKey();
             Console.Clear();
             Menu();
-        }
-
-        public void Got(char name)
-        {
-
         }
     }
 
@@ -225,6 +336,7 @@ namespace Telefonkönyv
         static void Main(string[] args)
         {
             Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Green;
             Person p = new Person();
 
             p.Start();
